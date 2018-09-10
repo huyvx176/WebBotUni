@@ -1,0 +1,95 @@
+<% layout('./layout/layout') -%>
+<div class="container">
+    <div class="row">
+        <div class="block-default create-new-block">
+
+            <!--Tab Header-->
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#createBot">Create New Bot</a></li>
+                <li><a data-toggle="tab" href="#createScript">Create New Script</a></li>
+            </ul>
+            <!--/Tab Header-->
+
+            <!--Tab Content-->
+            <div class="tab-content">
+
+                <!--Tab Create New Bot-->
+                <div id="createBot" class="tab-pane fade in active">
+                    <form>
+                        <div class="form-block">
+                            <div class="form-group">
+                                <label>Choose a name for your bot</label>
+
+                                <div class="form-item">
+                                    <input type="text" class="form-full" placeholder="Ex: Vegestable Order">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Select type of your bot</label>
+
+                                <div class="form-item">
+                                    <div class="select-box form-full">
+                                        <select>
+                                            <option value="volvo">Volvo</option>
+                                            <option value="saab">Saab</option>
+                                            <option value="mercedes">Mercedes</option>
+                                            <option value="audi">Audi</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Change your bot image</label>
+
+                                <div class="form-item">
+                                    <div class="bot-image"><img src="img/user_avatar.jpg" alt="" /></div>
+                                    <div class="file-input"><input type="file" name="change" /><a class="btn">Change</a></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Select platform for your bot</label>
+
+                                <div class="platform-bkl form-item">
+                                    <div class="platform-list">
+                                        <a href="#" class="item"><img src="img/user_avatar.jpg" alt="" /></a>
+                                        <a href="#" class="item"><img src="img/user_avatar.jpg" alt="" /></a>
+                                        <a href="#" class="item"><img src="img/user_avatar.jpg" alt="" /></a>
+                                        <a href="#" class="item"><img src="img/user_avatar.jpg" alt="" /></a>
+                                        <a href="#" class="item"><img src="img/user_avatar.jpg" alt="" /></a>
+                                        <a href="#" class="item"><img src="img/user_avatar.jpg" alt="" /></a>
+                                        <a href="#" class="item"><img src="img/user_avatar.jpg" alt="" /></a>
+                                        <a href="#" class="item"><img src="img/user_avatar.jpg" alt="" /></a>
+                                        <a href="#" class="item"><img src="img/user_avatar.jpg" alt="" /></a>
+                                        <a href="#" class="item"><img src="img/user_avatar.jpg" alt="" /></a>
+                                        <a href="#" class="item"><img src="img/user_avatar.jpg" alt="" /></a>
+                                        <a href="#" class="item"><img src="img/user_avatar.jpg" alt="" /></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-footer">
+                            <button class="btn btn-cancel">Cancel</button>
+                            <button class="btn"><span class="icon-plus"></span>Create Now</button>
+                        </div>
+                    </form>
+                </div>
+                <!--/Tab Create New Bot-->
+
+                <!--Tab Create New Script-->
+                <div id="createScript" class="tab-pane fade">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+                <!--/Tab Create New Script-->
+
+            </div>
+            <!--/Tab Content-->
+
+        </div>
+    </div>
+</div>

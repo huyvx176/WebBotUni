@@ -1,0 +1,188 @@
+<header>
+    <!-- NavBar -->
+    <div class="nav-wrapper">
+        <div id="nav" class="navbar navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="row">
+                    <div class="logo">
+                        <a href="home-page.html">
+                            <img src="img/logo.png" alt="" />
+                        </a>
+                    </div>
+                    <!--menu btn for mobile-->
+                    <div class="navbar-header">
+                        <button id="menuNavBtn" class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <!--/menu button for mobile-->
+                    <!--menu-->
+                    <nav class="collapse navbar-collapse" role="navigation">
+                        <button class="btn add-new mobile-mode" data-toggle="modal" data-target="#createNewModal">
+                            <span>
+                                <span class="icon-plus"></span>Add new</span>
+                        </button>
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="bot-list.html">Collection</a>
+                            </li>
+                            <li>
+                                <a href="hot-bot-and-script.html">Hot Bot & Scripts</a>
+                            </li>
+                            <li>
+                                <a href="makers.html">Makers</a>
+                            </li>
+                            <li>
+                                <a href="jobs.html">Jobs</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!--/menu-->
+                    <!--right navbar-->
+                    <div class="navbar-rightside">
+                        <div class="login">
+                            <!--a href="#">Sign In</a-->
+                            <ul class="login-items">
+                                <li class="item">
+                                    <span class="icon-mail" id="dropdownLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownLink1">
+                                        <p>You have no message</p>
+                                    </div>
+                                </li>
+                                <li class="item">
+                                    <span class="icon-notification" id="dropdownLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></span>
+                                    <span class="active"></span>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownLink2">
+                                        <p>You have no notification</p>
+                                    </div>
+                                </li>
+                                <li class="item avatar">
+                                    <span id="dropdownLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img src="img/dot.jpg" alt="" />
+                                    </span>
+                                    <span class="active"></span>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownLink3">
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <span class="avatar">
+                                                        <img src="img/dot.jpg" alt="" />
+                                                    </span>
+                                                    <span class="name">Le Anh Tuan</span>
+                                                    <span class="email">tuanle@gmail.com</span>
+                                                </a>
+                                            </li>
+                                            <li onclick="show_form_sign_in()">
+                                                <a href="#">
+                                                    <span class="icon-sign-in" ></span>Sign In</a>
+                                            </li>
+                                            <li onclick="show_form_sign_up()">
+                                                <a href="#">
+                                                    <span class="icon-sign-up" ></span>Sign up</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <span class="icon-user"></span>Profile</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <span class="icon-folder"></span>My bot &amp; script</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <span class="icon-mail"></span>Messages</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <span class="icon-notification">
+                                                        <span class="active"></span>
+                                                    </span>Notification</a>
+                                            </li>
+                                            <li>
+                                                <a href="my-wallet.html">
+                                                    <span class="icon-wallet"></span>Wallet</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <span class="icon-settings"></span>Setting</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <span class="icon-logout"></span>Log out</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <!--a href="#" class="item"><span class="icon-mail"></span></a>
+                            <a href="#" class="item"><span class="icon-notification"></span><span class="active"></span></a>
+                            <a href="#" class="item avatar"><span><img src="img/dot.jpg" alt="" /></span><span class="active"></span></a-->
+                            <!--div class="dropdown-style" style="height: 300px;">dfadfad sfasdf</div-->
+                        </div>
+
+                        <div class="search-wrapper" onclick="toggleSearch()">
+                            <span class="icon-search"></span>
+                        </div>
+
+                        <button class="btn add-new desktop-mode" data-toggle="modal" data-target="#createNewModal">
+                            <span>
+                                <span class="icon-plus"></span>Add new</span>
+                        </button>
+                    </div>
+                    <!--/right navbar-->
+                </div>
+            </div>
+            <!--bottom nav-->
+            <div id="search-box" class="navbar-bottom">
+                <div class="container">
+                    <div class="row">
+                        <!--our platform-->
+                        <div class="platform-bkl">
+                            <span class="platform-label">Our Platform</span>
+                            <div class="platform-list">
+                                <a href="#" class="item">
+                                    <img src="img/dot.jpg" alt="" />
+                                </a>
+                                <a href="#" class="item">
+                                    <img src="img/dot.jpg" alt="" />
+                                </a>
+                                <a href="#" class="item">
+                                    <img src="img/dot.jpg" alt="" />
+                                </a>
+                                <a href="#" class="item">
+                                    <img src="img/dot.jpg" alt="" />
+                                </a>
+                                <a href="#" class="item">
+                                    <img src="img/dot.jpg" alt="" />
+                                </a>
+                                <a href="#" class="item">
+                                    <img src="img/dot.jpg" alt="" />
+                                </a>
+                                <a href="#" class="item">
+                                    <img src="img/dot.jpg" alt="" />
+                                </a>
+                                <a href="#" class="item">
+                                    <img src="img/dot.jpg" alt="" />
+                                </a>
+                            </div>
+                        </div>
+                        <!--/out platform-->
+                        <!--search box-->
+                        <div class="search-inner">
+                            <form>
+                                <input type="search" placeholder="Searching..." />
+                            </form>
+                        </div>
+                        <!--/search box-->
+                    </div>
+                </div>
+            </div>
+            <!--/bottom nav-->
+        </div>
+    </div>
+    <!-- /NavBar -->
+</header>

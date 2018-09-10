@@ -1,0 +1,589 @@
+//media queries
+@mixin mobile {
+  @media only screen and (max-width: $w-sm - 1) {@content;}
+}
+
+@mixin tablet {
+  @media only screen and (max-width: $w-base - 1) {@content;}
+}
+
+@mixin desktop {
+  @media only screen and (min-width: $w-sm) {@content;}
+}
+
+@mixin large-desktop {
+  @media only screen and (min-width: $w-base) {@content;}
+}
+
+//position
+@mixin ver-pos {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+@mixin hoz-pos {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+@mixin center-pos {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+@mixin no-pos {
+  top: auto;
+  left: auto;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+//text shadow
+@mixin text-shadow($box-value) {
+  -webkit-text-shadow: $box-value;
+  -moz-text-shadow: $box-value;
+  text-shadow: $box-value;
+}
+
+//box shadow
+@mixin box-shadow($box-value) {
+  -webkit-box-shadow: $box-value;
+  -moz-box-shadow: $box-value;
+  box-shadow: $box-value;
+}
+
+//box-sizing
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model;
+  -moz-box-sizing: $box-model;
+  box-sizing: $box-model;
+}
+
+//border-radius
+@mixin border-radius($b-deg) {
+  -webkit-border-radius: $b-deg;
+  -moz-border-radius: $b-deg;
+  border-radius: $b-deg;
+}
+
+//transition
+@mixin single-transition($property,$duration){
+  -webkit-transition: $property $duration ease-in-out;
+  -moz-transition: $property $duration ease-in-out;
+  -o-transition: $property $duration ease-in-out;
+  transition: $property $duration ease-in-out;
+}
+
+//user selected
+@mixin user-select ($user-select) {
+  -moz-user-select: $user-select;
+  -webkit-user-select: $user-select;
+  -ms-user-select: $user-select;
+  user-select: $user-select;
+}
+
+//appearance
+@mixin appearance($value) {
+  -webkit-appearance: $value;
+  -moz-appearance: $value;
+  appearance: $value;
+}
+
+//ellipsis
+@mixin ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+
+//scroll-x
+@mixin scroll-x {overflow-x: auto; overflow-y: hidden;}
+//scroll-y
+@mixin scroll-y {overflow-x: hidden; overflow-y: auto;}
+
+//ellipsis
+@mixin ellipsis {white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+
+//scrollbar for -webkit
+@mixin scrollbar {
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 12px; @include border-radius(12px);
+    background-color: #F0F0F0; /*background track*/
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: #E6E6E6;
+  }
+  &::-webkit-scrollbar-thumb {
+    @include border-radius(12px);
+    border: 4px solid rgba(255,255,255,0);
+    background-clip: content-box;
+    background-color: #BFBFBF; /*background thumb*/
+  }
+}
+
+//image size of product
+@mixin img-size ($width,$height) {
+	position: relative;
+	width: $width;
+    height: auto;
+	background-color: $brBtn2;
+	&:before {
+		content: "";
+		display: block;	
+		padding-top: $height;
+	}
+}
+
+//square image
+@mixin square($value) {
+  width: $value;
+  height: $value;
+}
+
+//arrow style
+@mixin arrow-left($color,$width,$lwidth) {
+  border: transparent solid $width;
+  border-right-width: 0;
+  border-left-color: $color;
+  border-left-width: $lwidth;
+  -webkit-transform: scale(.9999);
+}
+@mixin arrow-down ($color,$width,$twidth) {
+  border: transparent solid $width;
+  border-top-width: $twidth;
+  border-top-color: $color;
+  -webkit-transform: scale(.9999);
+}
+@mixin arrow-up ($color,$width,$bwidth) {
+  border: transparent solid $width;
+  border-bottom-width: $bwidth;
+  border-bottom-color: $color;
+  -webkit-transform: scale(.9999);
+}
+
+//img
+@mixin avatar {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    @include center-pos;
+    width: 100%;
+  }
+}
+
+//form
+.input-type {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 5px;
+
+  input[type='checkbox'],
+  input[type='radio'] {
+    top: 1px;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+
+    &, & + span {
+      position: absolute;
+      top: 2px;
+      left: 0;
+      display: block;
+      @include square(18px);
+      margin: 0;
+    }
+
+    & + span {
+      background: $white;
+      border: $color09 solid 1px;
+      @include border-radius(1px);
+      @include single-transition(all,0.3s);
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        @include square(12px);
+        background-color: $textPrimary;
+        opacity: 0;
+      }
+    }
+    &:checked + span {
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+//check box
+@mixin checkbox {
+  @extend .input-type;
+}
+//using:
+//<div class="check-box">
+//  <input type="checkbox" name="" />
+//  <span></span>
+//  <label>Checkbox's lable</label>
+//</div>
+
+//radio
+
+@mixin radio {
+  @extend .input-type;
+  input[type='radio'] {
+    & + span {
+      &, &:before {
+        @include border-radius(100%);
+      }
+    }
+  }
+}
+//using:
+//<div class="radio-box">
+//  <input type="radio" name="" />
+//  <span></span>
+//  <label>Radio's lable</label>
+//</div>
+
+@mixin btn {
+  @include appearance(none);
+  position: relative;
+  font-size: $size;
+  font-weight: 700;
+  text-align: center;
+  display: inline-block;
+  height: 35px;
+  line-height: 33px;
+  background: $colorPrimary;
+  border: transparent solid 1px;
+  padding: 0 20px;
+  vertical-align: middle;
+  @include ellipsis;
+  @include border-radius(17px);
+  @include single-transition(all,0.3s);
+
+  &, &:hover, &:focus, &:active {
+    color: $white;
+  }
+
+  [class^="icon-"], [class*=" icon-"] {
+    margin-right: 10px;
+  }
+}
+
+@mixin btn-sencondary {
+  @include btn;
+  background: $white;
+  border-color: $brBtn;
+
+  &, &:hover, &:focus, &:active {
+    color: $color02;
+  }
+}
+
+@mixin btn-third {
+  @include btn;
+  background: $bgBtn;
+  border-color: $brBtn;
+
+  &, &:hover, &:focus, &:active {
+    color: $color03;
+  }
+
+  @include mobile {
+    font-size: $size - 1;
+  }
+}
+
+@mixin btn-fourth {
+  @include btn;
+  background: $color04;
+  border-color: $color05;
+
+  &, &:hover, &:focus, &:active {
+    color: $color02;
+  }
+}
+
+@mixin btn-file {
+  @include btn;
+  background: $brBtn;
+  border-color: $brBtn;
+
+  &, &:hover, &:focus, &:active {
+    color: $white;
+  }
+}
+
+@mixin btn-cancel {
+  @include btn;
+  background: $color18;
+  border-color: $color04;
+  @include box-shadow(0px 1px 3px 0px rgba(0,0,0,0.16));
+
+  &, &:hover, &:focus, &:active {
+    color: $color19;
+  }
+}
+
+//input text
+@mixin input-text {
+  color: $color08;
+  font-size: $size + 2;
+  font-weight: 700;
+  height: auto;
+  background: $color10;
+  @include border-radius(8px);
+  padding: 15px 25px 16px;
+
+  &, &:focus {
+    border: $border solid 1px;
+    @include box-shadow(none);
+  }
+
+  &::-webkit-input-placeholder {color: inherit; opacity: .8;}
+  &:-moz-placeholder {/*Firefox 18-*/ color: inherit; opacity: .8;}
+  &::-moz-placeholder {/*Firefox 19+*/ color: inherit; opacity: .8;}
+  &:-ms-input-placeholder {color: inherit; opacity: .8;}
+
+  @include mobile {
+    font-size: $size;
+    padding: 7px 15px;
+    @include border-radius(6px);
+  }
+}
+
+@mixin input-text-spec {
+  font-size: $size + 11;
+  color: $color08;
+  border: $color08 solid 1px;
+  border-width: 0 0 1px;
+  padding: 13px 20px 13px 0;
+
+
+  @include mobile {
+    font-size: $size + 2;
+    padding: 6px 15px 6px 0;
+  }
+}
+
+@mixin input-text-normal {
+  font-size: $size;
+  color: $text;
+  font-weight: 400;
+  height: 40px;
+  background: $greyLight;
+  border: $border solid 1px;
+  padding: 0 15px;
+  @include border-radius(8px);
+
+  &, &:focus {
+    border: $border solid 1px;
+    @include box-shadow(none);
+  }
+}
+
+//textarea
+@mixin textarea-style {
+  @include input-text-normal;
+  resize: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+//select box
+.select-spec {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  @include square(100%);
+  @include appearance(none);
+  border: none;
+  background: transparent;
+  z-index: 1;
+}
+
+.select-box-pure {
+  position: relative;
+  display: inline-block;
+  min-width: 50px;
+}
+
+@mixin select-box-spec {
+  @extend .select-box-pure;
+  min-width: 130px;
+  height: 62px;
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    @include ver-pos;
+    right: 2px;
+  }
+
+  &:before {
+    @include arrow-up($color08,5px,5px);
+    margin-top: -11px;
+  }
+
+  &:after {
+    @include arrow-down($color08,5px,5px);
+    margin-top: 1px;
+  }
+
+  select {
+    @extend .select-spec;
+    @include input-text-spec;
+    font-size: $size + 6;
+    padding: 0 25px 0 0;
+  }
+
+  @include mobile {
+    height: 36px;
+
+    &:before {
+      @include arrow-up($color08,4px,4px);
+      margin-top: -10px;
+    }
+
+    &:after {
+      @include arrow-down($color08,4px,4px);
+      margin-top: 0;
+    }
+
+    select {
+      font-size: $size;
+    }
+  }
+
+}
+
+@mixin select-box {
+  @extend .select-box-pure;
+  height: 55px;
+  background: $color10;
+  @include border-radius(8px);
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+  }
+
+  &:before {
+    top: 0;
+    right: 57px;
+    width: 1px;
+    height: 100%;
+    background: $color09;
+  }
+
+  &:after {
+    @include arrow-down($color08,8px,8px);
+    @include ver-pos;
+    right: 21px;
+    margin-top: 3px;
+  }
+
+  select {
+    @include input-text;
+    @extend .select-spec;
+    background: transparent;
+    padding: 0 70px 0 25px;
+
+    &, &:focus {
+      border: none;
+    }
+  }
+
+  @include mobile {
+    min-width: 150px;
+    height: 35px;
+
+    &:before {
+      right: 36px;
+    }
+
+    &:after {
+      @include arrow-down($color08,4px,4px);
+      right: 14px;
+      margin-top: -2px;
+    }
+
+    select {
+      padding-right: 50px;
+    }
+  }
+}
+
+@mixin select-box-normal {
+  @extend .select-box-pure;
+  @include input-text-normal;
+
+  &:after {
+    content: "";
+    position: absolute;
+    @include arrow-down($color07,5px,5px);
+    @include ver-pos;
+    right: 18px;
+    margin-top: 3px;
+  }
+
+  select {
+    @include input-text-normal;
+    @extend .select-spec;
+    background: transparent;
+    padding: 0 40px 0 15px;
+
+    &, &:focus {
+      border: none;
+    }
+
+  }
+}
+//using:
+//<div class="select-box">
+//  <select>
+//  <option value="option1">Option 1</option>
+//  </select>
+//</div>
+
+@mixin layout-bottom($height,$className) {
+  display: flex;
+  flex-direction: column;
+  height: $height;
+  min-height: $height;
+
+  .#{$className}) {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+  }
+}
+
+//clearfix
+@mixin clearer {
+  zoom: 1;
+  &:after {
+    content: '.';
+    display: block;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+  }
+}
